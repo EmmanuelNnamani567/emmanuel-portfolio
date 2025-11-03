@@ -1,0 +1,356 @@
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - Emmanuel Chinechetam</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet" crossorigin="anonymous">
+
+  <!-- boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #0ef;
+      --secondary-color: #1f242d;
+      --text-color: #fff;
+    }
+
+    body {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background-color: var(--secondary-color) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      color: var(--primary-color) !important;
+      font-size: 1.8rem !important;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: var(--text-color) !important;
+      position: relative;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      margin: 0 0.25rem;
+      font-size: 1.15rem;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-color) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      padding-top: 100px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .accent-color {
+      color: var(--primary-color);
+    }
+
+    /* Coming Soon Section */
+    .coming-soon-container {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .coming-soon-icon {
+      font-size: 4rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    .coming-soon-text {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .featured-soon {
+      background: rgba(14, 239, 255, 0.1);
+      border: 1px solid rgba(14, 239, 255, 0.3);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .featured-title {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .project-timeline {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .timeline-item {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .timeline-number {
+      background: var(--primary-color);
+      color: var(--secondary-color);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0 auto 1rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tech-badge {
+      background: rgba(14, 239, 255, 0.15);
+      color: var(--primary-color);
+      border: 1px solid rgba(14, 239, 255, 0.3);
+      border-radius: 15px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      background: linear-gradient(45deg, var(--primary-color), #0bd2c3);
+      color: var(--secondary-color);
+      border: none;
+      border-radius: 25px;
+      padding: 12px 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(14, 239, 255, 0.3);
+      color: var(--secondary-color);
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 991px) {
+      .navbar-brand {
+        font-size: 1.6rem !important;
+      }
+      
+      .nav-link {
+        font-size: 1.1rem !important;
+        text-align: center;
+        margin: 0.25rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .coming-soon-container {
+        padding: 2rem 1rem;
+      }
+      
+      .project-timeline {
+        gap: 1rem;
+        flex-direction: column;
+      }
+      
+      .coming-soon-icon {
+        font-size: 3rem;
+      }
+      
+      .tech-stack {
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./service.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center mb-5">
+          <h2 class="section-title fw-bold">My <span class="accent-color">Portfolio</span></h2>
+          <p class="section-subtitle">Showcasing my development journey</p>
+        </div>
+        
+        <div class="col-lg-8">
+          <div class="coming-soon-container">
+            <div class="coming-soon-icon">
+              <i class="bx bx-code-alt"></i>
+            </div>
+            
+            <h3 class="coming-soon-text">Projects Coming Soon!</h3>
+            
+            <p class="lead mb-4">
+              I'm currently working on some exciting projects that will be showcased here soon. 
+              As a passionate full-stack developer, I believe in creating quality work that solves real problems.
+            </p>
+            
+            <p class="mb-4">
+              In the meantime, feel free to check out my <a href="./resume.html" style="color: #0ef; text-decoration: none;">resume</a> 
+              to learn more about my skills and experience, or <a href="./contact.html" style="color: #0ef; text-decoration: none;">contact me</a> 
+              to discuss potential collaborations.
+            </p>
+            
+            <div class="featured-soon">
+              <h4 class="featured-title">What's Coming Next</h4>
+              <p>I'm currently developing projects using:</p>
+              <div class="project-timeline">
+                <div class="timeline-item">
+                  <div class="timeline-number">1</div>
+                  <div>Python & Django Applications</div>
+                  <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Django</span>
+                    <span class="tech-badge">SQLite</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-number">2</div>
+                  <div>Mobile Apps with Flutter</div>
+                  <div class="tech-stack">
+                    <span class="tech-badge">Dart</span>
+                    <span class="tech-badge">Flutter</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-number">3</div>
+                  <div>Full-Stack Web Solutions</div>
+                  <div class="tech-stack">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-4">
+              <a href="./contact.html" class="cta-btn">
+                <i class="bx bx-chat me-2"></i>Let's Work Together
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emmanuel Chinechetam - Portfolio</title>
+
+  <!-- Bootstrap (first) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet" crossorigin="anonymous">
+
+  <!-- boxicons (icons) -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #0ef;
+      --secondary-color: #1f242d;
+      --text-color: #fff;
+    }
+
+    body {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background-color: var(--secondary-color) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      color: var(--primary-color) !important;
+      font-size: 1.8rem !important;
+    }
+
+    .nav-link {
+      color: var(--text-color) !important;
+      position: relative;
+      transition: color 0.3s ease;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-color) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hero section */
+    .hero-section {
+      background-color: var(--secondary-color);
+    }
+
+    /* Role text animation - FIXED */
+    .role-container {
+      position: relative;
+      height: 40px;
+      display: inline-block;
+      min-width: 280px;
+      margin-left: 10px;
+    }
+
+    .role-span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      animation: roleChange 6s infinite;
+      color: var(--primary-color);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .role-span:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .role-span:nth-child(2) {
+      animation-delay: 3s;
+    }
+
+    @keyframes roleChange {
+      0%, 33% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      34%, 100% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Custom button styling */
+    .custom-btn {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      font-weight: 600;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .custom-btn:hover {
+      background-color: #0bd2c3;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 238, 255, 0.3);
+    }
+
+    /* Image styling with glow effect */
+    .image-box {
+      position: relative;
+    }
+
+    .image-box::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+      background-size: 400%;
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(20px);
+      opacity: 0;
+      transition: opacity 0.5s;
+      animation: glowing 20s linear infinite;
+    }
+
+    .image-box:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    .image-item img {
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      border-color: var(--primary-color);
+    }
+
+    .image-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Responsive adjustments */
+ /* === Baseline alignment fix (global) === */
+ /* === Universal alignment and height fix === */
+h2.fs-3 {
+  display: flex;
+  align-items: center;       /* centers both vertically */
+  gap: 8px;
+  white-space: nowrap;
+  line-height: 1.2;          /* keeps consistent spacing */
+  min-height: 45px;          /* ensures consistent height */
+}
+
+.role-container {
+  display: inline-flex;
+  align-items: center;       /* perfectly aligns the animated role text */
+  justify-content: flex-start;
+  position: relative;
+  height: 45px;              /* matches h2 min-height */
+  margin-left: 5px;
+}
+
+/* Each animated role text spans the same height */
+.role-span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  animation: roleChange 6s infinite;
+  color: var(--primary-color);
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 45px;         /* keeps the text aligned vertically */
+}
+
+/* === Responsive adjustment (for smaller screens) === */
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  h2.fs-3 {
+    font-size: 1.5rem;
+    min-height: 40px;
+    gap: 6px;
+  }
+
+  .role-container {
+    height: 40px;
+  }
+
+  .role-span {
+    line-height: 40px;
+  }
+}
+
+
+.role-container {
+  display: inline-flex;
+  align-items: baseline;
+  position: relative;
+  height: 40px;
+  margin-left: 5px;
+}
+
+/* === Mobile adjustments === */
+@media (max-width: 768px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  h2.fs-3 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .role-container {
+    height: 35px;
+    align-items: baseline;
+    margin-left: 5px;
+    margin-top: 0;
+  }
+}
+
+
+    @media (max-width: 991px) {
+      .navbar-brand {
+        font-size: 1.6rem !important;
+      }
+      
+      .nav-link {
+        font-size: 1.1rem !important;
+        text-align: center;
+        margin: 0.25rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="./home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./service.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="container-fluid min-vh-100 d-flex align-items-center hero-section" style="padding-top: 80px;">
+    <div class="container">
+      <div class="row w-100">
+        <!-- Left: Text -->
+        <div class="col-lg-7 d-flex flex-column justify-content-center">
+          <h1 class="display-3 fw-bold">EMMANUEL CHINECHETAM</h1>
+          <h2 class="fs-3 mt-3 d-flex align-items-center">
+            I am a
+            <span class="role-container">
+              <span class="role-span">Full-Stack Mobile Developer</span>
+              <span class="role-span">Full-Stack Web Developer</span>
+            </span>
+          </h2>
+          <p class="lead mt-4">
+            I am a results-driven Full-Stack Developer specializing in both mobile and web applications.
+            With expertise in modern technologies, I craft innovative, scalable, and user-friendly solutions
+            that bring ideas to life. From intuitive mobile apps to responsive web platforms, I focus on clean
+            code, performance optimization, and seamless user experiences.
+          </p>
+
+          <!-- Buttons + Social -->
+          <div class="d-flex align-items-center mt-4">
+            <a href="./contact.html" class="btn custom-btn btn-lg rounded-pill px-4">Hire Me</a>
+            <div class="ms-3 d-flex">
+              <a href="https://web.facebook.com/profile.php?id=100093563270836" class="btn btn-outline-light btn-lg rounded-circle me-2"><i class="bx bxl-facebook"></i></a>
+              <a href="https://x.com/EmmanuelCh42199" class="btn btn-outline-light btn-lg rounded-circle me-2"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/emmanuel-nnamani-2a61a138b/" class="btn btn-outline-light btn-lg rounded-circle me-2"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://github.com/EmmanuelNnamani567" class="btn btn-outline-light btn-lg rounded-circle"><i class="bx bxl-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Image with glowing ring -->
+        <div class="col-lg-5 d-flex justify-content-center align-items-center mt-5 mt-lg-0">
+          <div class="image-box position-relative">
+            <div class="image-item">
+              <img src="./assets/ema.png" 
+                   alt="Emmanuel Chinechetam" 
+                   class="img-fluid rounded-circle">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

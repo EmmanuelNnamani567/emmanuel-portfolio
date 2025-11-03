@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume - Emmanuel Chinechetam</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+  <!-- boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #0ef;
+      --secondary-color: #1f242d;
+      --text-color: #fff;
+    }
+
+    body {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background-color: var(--secondary-color) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      color: var(--primary-color) !important;
+      font-size: 1.8rem !important;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      color: var(--text-color) !important;
+      position: relative;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      margin: 0 0.25rem;
+      font-size: 1.15rem;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-color) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Resume section */
+    .resume-section {
+      padding-top: 100px;
+      min-height: 100vh;
+    }
+
+    .resume-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .resume-item:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .badge {
+      background: var(--primary-color) !important;
+      color: var(--secondary-color) !important;
+      font-weight: 600;
+      padding: 0.5rem 1rem !important;
+      height: auto !important;
+    }
+
+    /* Institution names - FIXED VISIBILITY */
+    .institution-name {
+      color: #b0b0b0 !important;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    /* Skills section */
+    .skill-category-title {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-bottom: 2px solid #0ef;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(14, 239, 255, 0.1);
+      border: 1px solid rgba(14, 239, 255, 0.3);
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      margin: 0.3rem;
+    }
+
+    .skill-tag:hover {
+      background: rgba(14, 239, 255, 0.2);
+      border-color: #0ef;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(14, 239, 255, 0.2);
+    }
+
+    .skill-tag i {
+      color: #0ef;
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .accent-color {
+      color: var(--primary-color);
+    }
+
+    /* Download Button - FIXED */
+    .download-btn {
+      background: var(--primary-color) !important;
+      color: var(--secondary-color) !important;
+      font-weight: 600;
+      padding: 10px 25px !important;
+      border-radius: 25px;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      height: auto !important;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(14, 239, 255, 0.3);
+      color: var(--secondary-color) !important;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 991px) {
+      .navbar-brand {
+        font-size: 1.6rem !important;
+      }
+
+      .nav-link {
+        font-size: 1.1rem !important;
+        text-align: center;
+        margin: 0.25rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .skill-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .skill-tag i {
+        font-size: 1rem;
+      }
+
+      .badge {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./service.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Resume Section -->
+  <section class="resume-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title fw-bold">My <span class="accent-color">Resume</span></h2>
+          <p class="lead">My professional journey</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Education -->
+        <div class="col-lg-6 mb-5">
+          <h3 class="mb-4" style="color: #0ef;">Education</h3>
+
+          <div class="resume-item">
+            <div class="d-flex justify-content-between align-items-start">
+              <h4>Full-Stack Mobile Development</h4>
+              <span class="badge">2023 - 2024</span>
+            </div>
+            <h5 class="institution-name">Nibcode</h5>
+            <p>Graduated with honors, specializing in software engineering and web technologies.</p>
+          </div>
+
+          <div class="resume-item">
+            <div class="d-flex justify-content-between align-items-start">
+              <h4>Full-Stack Web Development </h4>
+              <span class="badge">2025</span>
+            </div>
+            <h5 class="institution-name"> Nnewi Tech Faculty</h5>
+            <p>Intensive 6-month program covering modern web development technologies and best practices.</p>
+          </div>
+        </div>
+
+        <!-- Experience -->
+         <div class="col-lg-6 mb-5">
+  <h3 class="mb-4" style="color: #0ef;">Experience</h3>
+  
+  <div class="resume-item">
+    <div class="d-flex justify-content-between align-items-start">
+      <h4>Junior Full-Stack Developer</h4>
+      <span class="badge">2024 - Present</span>
+    </div>
+    <h5 class="institution-name">Tech Startup / Company Name</h5>
+    <p>Contributed to development of web applications using modern full-stack technologies.</p>
+    <ul>
+      <li>Developed frontend components using HTML5, ECMAScript and responsive CSS</li>
+      <li>Built backend APIs and database models with Django and SQLite</li>
+      <li>Collaborated with senior developers on feature implementation</li>
+      <li>Participated in code reviews and learned industry best practices</li>
+      <li>Assisted in testing and debugging applications</li>
+    </ul>
+  </div>
+
+  <div class="resume-item">
+    <div class="d-flex justify-content-between align-items-start">
+      <h4>Freelance Web Developer</h4>
+      <span class="badge">2024 - 2025</span>
+    </div>
+    <h5 class="institution-name">Self-Employed</h5>
+    <p>Built custom websites and web applications for clients while developing technical skills.</p>
+    <ul>
+      <li>Created responsive websites using modern frontend technologies</li>
+      <li>Developed full-stack applications with Django backend</li>
+      <li>Managed project timelines and client communications</li>
+      <li>Deployed applications and provided maintenance support</li>
+    </ul>
+  </div>
+</div>
+
+      <!-- Skills Section -->
+      <div class="row">
+        <div class="col-12">
+          <h3 class="mb-5 text-center" style="color: #0ef;">Technical Expertise</h3>
+
+          <div class="row">
+            <!-- Technical Skills -->
+            <div class="col-lg-6 mb-5">
+              <h4 class="mb-4 text-center" style="color: #0ef;">Technical Skills</h4>
+
+              <div class="skill-category mb-4">
+                <h5 class="skill-category-title">Frontend Development</h5>
+                <div class="d-flex flex-wrap">
+                  <div class="skill-tag">
+                    <i class='bx bxl-react'></i>
+                    <span>React.js</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-javascript'></i>
+                    <span>JavaScript</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-html5'></i>
+                    <span>HTML5</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-css3'></i>
+                    <span>CSS3</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-bootstrap'></i>
+                    <span>Bootstrap</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-tailwind-css'></i>
+                    <span>Tailwind CSS</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-category mb-4">
+                <h5 class="skill-category-title">Backend Development</h5>
+                <div class="d-flex flex-wrap">
+                  <div class="skill-tag">
+                    <i class='bx bxl-python'></i>
+                    <span>Python</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-django'></i>
+                    <span>Django</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bx-data'></i>
+                    <span>REST APIs</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bx-server'></i>
+                    <span>API Development</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-category mb-4">
+                <h5 class="skill-category-title">Mobile Development</h5>
+                <div class="d-flex flex-wrap">
+                  <div class="skill-tag">
+                    <i class='bx bxl-react'></i>
+                    <span>React Native</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-flutter'></i>
+                    <span>Flutter</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bx-mobile-alt'></i>
+                    <span>iOS/Android</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools & Technologies -->
+            <div class="col-lg-6 mb-5">
+              <h4 class="mb-4 text-center" style="color: #0ef;">Tools & Technologies</h4>
+
+              <div class="skill-category mb-4">
+                <h5 class="skill-category-title">Database & Cloud</h5>
+                <div class="d-flex flex-wrap">
+                   
+                  <div class="skill-tag">
+                    <i class='bx bx-data'></i>
+                    <span>PostgreSQL</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-firebase'></i>
+                    <span>Firebase</span>
+                  </div>
+                   <div class="skill-tag">
+        <i class='bx bx-data'></i>
+        <span>MySQL</span>
+      </div>
+      <div class="skill-tag">
+        <i class='bx bxl-python'></i>
+        <span>SQLite</span>
+      </div>
+                </div>
+              </div>
+
+              <div class="skill-category mb-4">
+                <h5 class="skill-category-title">Tools & Platforms</h5>
+                <div class="d-flex flex-wrap">
+                  <div class="skill-tag">
+                    <i class='bx bxl-git'></i>
+                    <span>Git</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bxl-github'></i>
+                    <span>GitHub</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="skill-category mb-4">
+                <h5 class="skill-category-title">Professional Skills</h5>
+                <div class="d-flex flex-wrap">
+                  <div class="skill-tag">
+                    <i class='bx bx-brain'></i>
+                    <span>Problem Solving</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bx-group'></i>
+                    <span>Team Collaboration</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bx-trending-up'></i>
+                    <span>Project Management</span>
+                  </div>
+                  <div class="skill-tag">
+                    <i class='bx bx-chat'></i>
+                    <span>Communication</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Button - FIXED TO WORK -->
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <a href="assets/documents/Emmanuel_Chinechetam_Resume.pdf" class="download-btn" download>
+            <i class="bx bx-download me-2"></i>Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
