@@ -20,9 +20,18 @@
     }
 
     body {
-      background-color: var(--secondary-color);
-      color: var(--text-color);
+
     }
+    html, body {
+  overflow-x: hidden; /* prevents horizontal scroll */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  
+        background-color: var(--secondary-color);
+      color: var(--text-color);
+}
+
 
     /* Navbar styling */
  /* Navbar styling */
@@ -301,7 +310,8 @@ h2.fs-3 {
     </div>
   </nav>
   <!-- Hero Section -->
-  <section id="home" class="container-fluid min-vh-100 d-flex align-items-center hero-section" style="padding-top: 80px;">
+  <section id="home" class="container-fluid min-vh-100 d-flex align-items-center hero-section">
+
     <div class="container">
       <div class="row w-100">
         <!-- Left: Text -->
